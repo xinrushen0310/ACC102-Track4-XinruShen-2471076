@@ -1,0 +1,43 @@
+Manchester United Stock and Match Analysis Dashboard
+
+1. Problem and User
+This project addresses the challenge of quantifying the impact of sporting performance on the financial valuation of a publicly traded football club. The tool is designed for financial analysts, sports investors, and club management who need to analyze how Premier League match results correlate with monthly stock returns for Manchester United (MANU).
+
+2. Data
+The analysis utilizes two primary datasets accessed in April 2024:
+- Stock Data: Monthly closing prices, adjusted returns, and trading volume for MANU from WRDS / CRSP (crsp.msf).
+- Match Data: Premier League match results, including scores, goal differences, and points earned, sourced from football-data.co.uk.
+- Key Fields: Month, Monthly Return Percentage, Win Rate, Goal Difference, Points Per Match, and Momentum Score.
+
+3. Methods
+The application follows a structured Python-based data pipeline:
+- Data Integration: Merging monthly stock returns with aggregated match performance metrics using Pandas.
+- Feature Engineering: Calculating rolling averages, momentum scores, and performance grades (A-D) based on points per match.
+- Statistical Analysis: Implementing One-Way ANOVA, Pearson correlations, and OLS regression using SciPy and Statsmodels.
+- Visualization: Generating interactive timelines, distribution plots, and correlation heatmaps using Matplotlib and Seaborn.
+- UI Development: Building a themed interactive dashboard with Streamlit and custom CSS.
+
+4. Key Findings
+- Statistical Significance: One-Way ANOVA tests indicate whether monthly stock returns differ significantly across Win, Draw, and Loss categories.
+- Performance Correlation: Pearson correlation analysis reveals the strength of the relationship between on-pitch momentum and market valuation.
+- Market Volatility: The dashboard highlights specific periods where extreme match results (e.g., high-scoring wins or losses) coincided with significant stock price movements.
+- Grade Distribution: The majority of months are categorized into performance grades, showing the consistency of the club's sporting output over the analyzed period.
+
+5. How to run
+1. Install the required dependencies:
+   pip install streamlit pandas numpy matplotlib seaborn scipy openpyxl
+2. Ensure the data files (MANU_stock_WRDS_CRSP.xlsx and MANU_match_football_data.xlsx) are in the project directory.
+3. Execute the application:
+   streamlit run app_manchester_united.py
+4. The dashboard will be accessible at https://qzbv2smc8jfxvwpnhm2dnr.streamlit.app/#grade-b
+
+6. Product link / Demo
+The interactive dashboard is hosted locally via Streamlit. Users can filter data by season and win rate to observe dynamic updates in the KPI cards and statistical outputs.
+
+7. Limitations and next steps
+- Data Frequency: The current analysis uses monthly aggregated data; future versions could incorporate daily stock movements following specific match days for higher granularity.
+- External Factors: The model does not currently account for broader market trends or transfer window activities, which could be integrated in future iterations.
+- Predictive Modeling: Next steps include developing a machine learning model to predict short-term stock price volatility based on upcoming match fixtures.
+
+Manchester United Themed Analysis
+AI Tools Used: Manus AI for code refactoring and UI design; Large Language Models for technical documentation and CSS optimization.
